@@ -1,0 +1,39 @@
+<div id="info-section" class="site-section site-section-sm site-blocks-1">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-7 site-section-heading text-center pt-4">
+        <h2>Produtos em destaque</h2>
+      </div>
+    </div>
+    <div style="margin-top: 5%;" class="row">
+      <div class="col-md-6 col-lg-6 d-lg-flex mb-6 mb-lg-0 pl-6" data-aos="fade-up" data-aos-delay="">
+        <div class="block-4 text-center border" [ngClass]="{'scale-up-center': hover, 'scale-down-center': !hover}"
+          (mouseover)="hover=true" (mouseout)="hover=false">
+          <figure class="block-4-image">
+            <a (click)="goToDetails()" href="javascript:void(0)"><img src="../../assets/images/sofa01.jpeg" alt="Image placeholder"
+                class="img-fluid"></a>
+          </figure>
+          <div class="block-4-text p-4">
+            <h3><a href="shop-single.html">Tank Top</a></h3>
+            <p class="mb-0">Finding perfect t-shirt</p>
+            <p class="text-primary font-weight-bold">$50</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="block-4 text-center border" [ngClass]="{'scale-up-center': hover2, 'scale-down-center': !hover2}"
+          (mouseover)="hover2=true" (mouseout)="hover2=false">
+          <figure class="block-4-image">
+            <a (click)="goToDetails()" href="javascript:void(0)"><img src="../../assets/images/sofa02.jpeg" alt="Image placeholder"
+                class="img-fluid"></a>
+          </figure>
+          <div class="block-4-text p-4">
+            <h3><a href="shop-single.html">Tank Top</a></h3>
+            <p class="mb-0">Finding perfect t-shirt</p>
+            <p class="text-primary font-weight-bold">$50</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

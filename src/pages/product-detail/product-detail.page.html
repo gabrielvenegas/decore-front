@@ -1,0 +1,62 @@
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <ngx-image-zoom [thumbImage]="thumbImage"></ngx-image-zoom>
+        <!-- [fullImage]="product?.photos[chosenPic].path" -->
+        <!-- <img src="" alt="Image" class="img-fluid"> -->
+        <div class="row" style="width: 100%; text-align: center; padding: 10%;">
+          <div class="col-md-3" *ngFor="let photo of product?.photos">
+            <a href="javascript:void(0)" (click)="changePic(photo.id)">
+              <img [src]="photo?.path" width="80px" height="80px" [alt]="photo?.id">
+            </a>
+          </div>
+          <!-- <div class="col-md-3">4</div>
+          <div class="col-md-3">4</div>
+          <div class="col-md-3">4</div> -->
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-black">{{product?.name}}</h2>
+        <h5>Especificações: </h5>
+        <ul>
+          <li *ngIf="product?.height"> Altura: {{product?.height}} cm</li>
+          <li *ngIf="product?.width"> Largura: {{product?.width}} cm</li>
+          <li *ngIf="product?.length"> Comprimento: {{product?.length / 1000}} m</li>
+          <li *ngIf="product?.diameter"> Diametro: {{product?.diameter}} cm</li>
+          <li *ngIf="product?.weight"> Peso: {{product?.weight}} kg</li>
+          <li *ngIf="product?.cover"> Tampo: {{product?.cover === 1 ? 'Vidro' : 'Madeira' }}</li>
+        </ul>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere,
+          natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga
+          voluptas, distinctio, aperiam, ratione dolore.</p>
+        <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos
+          repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic
+          magni iste, velit aperiam quis.</p> -->
+        <p><strong class="text-primary h4">R$ {{product?.price}}</strong></p>
+        <div class="mb-1 d-flex">
+          <label for="option-sm" class="d-flex mr-3 mb-3" *ngFor="let color of product?.colors">
+            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input [(ngModel)]="cart.color"
+                type="radio" id="{{color?.id}}" [value]="color.name" name="shop-sizes"></span> <span class="d-inline-block text-black">{{color?.name}}</span>
+          </label>
+        </div>
+        <div class="mb-5">
+          <div class="input-group mb-3" style="max-width: 120px;">
+            <div class="input-group-prepend">
+              <button class="btn btn-outline-primary js-btn-minus" type="button" (click)="take()">-</button>
+            </div>
+            <input type="text" class="form-control text-center" [value]="cart?.amount" placeholder="" aria-label="Example text with button addon"
+              aria-describedby="button-addon1" disabled>
+            <div class="input-group-append">
+              <button class="btn btn-outline-primary js-btn-plus" type="button" (click)="add()">+</button>
+            </div>
+          </div>
+
+        </div>
+        <p><a href="javascript:void(0)" class="buy-now btn btn-sm btn-primary" (click)="addToCart()">Adicionar ao
+            carrinho</a></p>
+
+      </div>
+    </div>
+  </div>
+</div>

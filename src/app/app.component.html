@@ -1,0 +1,168 @@
+<div class="site-wrap">
+    <header id="home" class="site-navbar" style="background-color: #ffffff !important" role="banner">
+        <div class="site-navbar-top" style="padding-bottom: 0px;">
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <div class="col-4 mb-4 mb-md-4 col-md-4 order-1 order-md-2 text-left">
+                        <a [routerLink]="['/cart']" class="site-cart">
+                            <span class="icon icon-location-arrow">
+
+                            </span>
+                            <span style="position: absolute; right: 65%; top: -1px;">
+                                Voce esta em {{cidade}}</span>
+                        </a>
+                    </div>
+
+                    <div class="col-4 mb-4 mb-md-4 col-md-4 order-1 order-md-2 text-center">
+                        <!-- <input type="text" class="form-control" style="font-size: 24px; border-radius: 35px;" name="search"
+                            placeholder="o que voce procura?">
+                        <span class="icon icon-search2" style="position: absolute;
+                        top: 10px;
+                        right: 30px;"></span> -->
+                        <a href="javascript:void(0);" [routerLink]="['/home']">
+                            <div class="site-logo" style="text-align: left;">
+                                <!-- <a href="index.html" class="js-logo-clone">Adote uma familia</a> -->
+                                <img style="width: 80%" src="../assets/images/g2145.png" alt="">
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <div class="
+                            col-4 mb-4 mb-md-4 col-md-4 order-3 order-md-3 text-right">
+                        <div class="site-top-icons">
+                            <ul>
+                                <li>
+                                    <input type="text" class="form-control" style="font-size: 16px; border-radius: 35px; position: absolute;
+                                    left: 15%;
+                                    width: 55%;
+                                    top: -20%;"
+                                        name="search" placeholder="o que voce procura?">
+                                    <span class="icon icon-search2" style="position: absolute; top: 10px; right: 30px;"></span>
+                                </li>
+                                <li><a [routerLink]="['/login']"><span class="icon icon-person" style="font-size: 30px"></span></a></li>
+                                <li>
+                                    <a [routerLink]="['/cart']" class="site-cart">
+                                        <span class="icon icon-shopping_cart" style="font-size: 30px"></span>
+                                        <span class="count" *ngIf="items?.length > 0">{{items?.length}}</span>
+                                    </a>
+                                </li>
+                                <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
+                                            class="icon-menu" style="font-size: 30px"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <nav id="navbar" class="site-navigation text-right text-md-center" role="navigation">
+            <div class="container">
+                <ul class="site-menu js-clone-nav d-none d-md-block">
+                    <!-- <li>
+                        <a href="javascript:void(0)" (click)="scroll('home')">SOFÁS</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" (click)="scroll('info-section')">POLTRONAS</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" (click)="scroll('family-plan')">CADEIRAS</a>
+                    </li> -->
+                    <li class="has-children">
+                        <a>
+                            SOFÁS
+                        </a>
+                        <ul class="dropdown">
+                            <li>
+                                <a (click)="goToPage('/store?type=1')">SOFÁ RETRÁTIL</a>
+                            </li>
+                            <li>
+                                <a (click)="goToPage('/store?type=2')">SOFÁ FIXO</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0)" (click)="goToPage('/store?type=3')">POLTRONAS</a></li>
+                    <li class="has-children">
+                        <a>MESAS
+                        </a>
+                        <ul class="dropdown">
+                            <li>
+                                <a (click)="goToPage('/store?type=4')">MESA DE JANTAR</a>
+                            </li>
+                            <li>
+                                <a (click)="goToPage('/store?type=5')">MESA CENTRAL</a>
+                            </li>
+                            <li>
+                                <a (click)="goToPage('/store?type=6')">MESA LATERAL</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0)" (click)="goToPage('/store?type=7')">CADEIRAS</a></li>
+                    <li><a href="javascript:void(0)" (click)="goToPage('/store?type=8')">QUADROS</a></li>
+                    <li class="has-children">
+                        <a>DECORAÇÃO</a>
+                        <ul class="dropdown">
+                            <li>
+                                <a (click)="goToPage('/store?type=9')">BANDEIJA ESPELHADA</a>
+                            </li>
+                            <li>
+                                <a (click)="goToPage('/store?type=10')">SUPORTE LATERAL</a>
+                            </li>
+                            <li>
+                                <a (click)="goToPage('/store?type=11')">PRATO GIRATÓRIO</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0)" (click)="goToPage('/store?type=12')">APARADORES</a></li>
+                    <li><a [routerLink]="['/promotions']">LIQUIDAÇÃO</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                </ul>
+                <div *ngIf="showLeftIcons" class="site-top-icons navbar-right" style="bottom: 1.3vh !important;">
+                    <ul>
+                        <li><a href="#"><span class="icon icon-person"></span></a></li>
+                        <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                        <li>
+                            <a href="cart.html" class="site-cart">
+                                <span class="icon icon-shopping_cart"></span>
+                                <span class="count">2</span>
+                            </a>
+                        </li>
+                        <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
+                                    class="icon-menu"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <router-outlet (scroll)="onWindowScroll($event);"></router-outlet>
+    <!-- <footer id="footer" class="site-footer border-top" style="position: absolute;
+    top: 80%;
+    width: 100%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-6">
+                    <div class="block-5 mb-5">
+                        <h3 class="footer-heading mb-4">Informações de contato</h3>
+                        <ul class="list-unstyled">
+                            <li class="phone"><a href="tel://32998025548">32 99802-5548</a></li>
+                            <li class="phone"><a href="tel://27992518934">27 99251-8934</a></li>
+                            <li class="email">decoremoveis.contato@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-5 mt-5 text-center">
+                <div class="col-md-12">
+                    <p>
+                        Copyright &copy;
+                        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer> -->
+</div>
